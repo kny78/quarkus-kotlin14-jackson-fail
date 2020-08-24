@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: im.kny.DeSerializeQuarkusTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.575 s <<< FAILURE! - in im.kny.DeSerializeQuarkusTest
+im.kny.DeSerializeQuarkusTest.quarkusFail  Time elapsed: 0.568 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at im.kny.DeSerializeQuarkusTest.quarkusFail(DeSerializeQuarkusTest.kt:16)
+Caused by: java.lang.IllegalStateException: Resource not found in classpath: kotlin/kotlin.kotlin_builtins
+	at im.kny.DeSerializeQuarkusTest.quarkusFail(DeSerializeQuarkusTest.kt:16)
+
