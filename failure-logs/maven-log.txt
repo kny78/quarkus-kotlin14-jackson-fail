@@ -4,7 +4,8 @@
 [INFO] Building quarkus-kotlin14-jackson 1.0.0-SNAPSHOT
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- quarkus-maven-plugin:1.7.0.Final:prepare (default) @ quarkus-kotlin14-jackson ---
+[INFO] --- quarkus-maven-plugin:1.8.0.Final:prepare (default) @ quarkus-kotlin14-jackson ---
+[WARNING] 'prepare' goal is deprecated. Please use 'generate-code' instead
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ quarkus-kotlin14-jackson ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -13,10 +14,11 @@
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ quarkus-kotlin14-jackson ---
 [INFO] Nothing to compile - all classes are up to date
 [INFO] 
-[INFO] --- kotlin-maven-plugin:1.4.0:compile (compile) @ quarkus-kotlin14-jackson ---
+[INFO] --- kotlin-maven-plugin:1.4.10:compile (compile) @ quarkus-kotlin14-jackson ---
 [INFO] Applied plugin: 'all-open'
 [INFO] 
-[INFO] --- quarkus-maven-plugin:1.7.0.Final:prepare-tests (default) @ quarkus-kotlin14-jackson ---
+[INFO] --- quarkus-maven-plugin:1.8.0.Final:prepare-tests (default) @ quarkus-kotlin14-jackson ---
+[WARNING] 'prepare-tests' goal is deprecated. Please use 'generate-code-tests' instead
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ quarkus-kotlin14-jackson ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -25,7 +27,7 @@
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ quarkus-kotlin14-jackson ---
 [INFO] Changes detected - recompiling the module!
 [INFO] 
-[INFO] --- kotlin-maven-plugin:1.4.0:test-compile (test-compile) @ quarkus-kotlin14-jackson ---
+[INFO] --- kotlin-maven-plugin:1.4.10:test-compile (test-compile) @ quarkus-kotlin14-jackson ---
 [INFO] Applied plugin: 'all-open'
 [WARNING] /home/kny/src/thirdparty/quarkus/quarkus-kotlin14-jackson/src/test/kotlin/im/kny/DeSerializeNonQuarkusTest.kt: (14, 13) Variable 'json' is never used
 [WARNING] /home/kny/src/thirdparty/quarkus/quarkus-kotlin14-jackson/src/test/kotlin/im/kny/DeSerializeQuarkusTest.kt: (16, 13) Variable 'json' is never used
@@ -36,35 +38,33 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running im.kny.ExampleResourceTest
-2020-08-24 10:59:14,465 INFO  [io.quarkus] (main) Quarkus 1.7.0.Final on JVM started in 3.034s. Listening on: http://0.0.0.0:8081
-2020-08-24 10:59:14,491 INFO  [io.quarkus] (main) Profile test activated. 
-2020-08-24 10:59:14,491 INFO  [io.quarkus] (main) Installed features: [cdi, kotlin, resteasy]
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.538 s - in im.kny.ExampleResourceTest
+2020-09-10 08:18:18,440 INFO  [io.quarkus] (main) Quarkus 1.8.0.Final on JVM started in 1.516s. Listening on: http://0.0.0.0:8081
+2020-09-10 08:18:18,460 INFO  [io.quarkus] (main) Profile test activated. 
+2020-09-10 08:18:18,460 INFO  [io.quarkus] (main) Installed features: [cdi, kotlin, resteasy]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.245 s - in im.kny.ExampleResourceTest
 [INFO] Running im.kny.DeSerializeNonQuarkusTest
 json
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.983 s - in im.kny.DeSerializeNonQuarkusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.703 s - in im.kny.DeSerializeNonQuarkusTest
 [INFO] Running im.kny.DeSerializeQuarkusTest
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.575 s <<< FAILURE! - in im.kny.DeSerializeQuarkusTest
-[ERROR] im.kny.DeSerializeQuarkusTest.quarkusFail  Time elapsed: 0.568 s  <<< ERROR!
-java.lang.ExceptionInInitializerError
-	at im.kny.DeSerializeQuarkusTest.quarkusFail(DeSerializeQuarkusTest.kt:16)
-Caused by: java.lang.IllegalStateException: Resource not found in classpath: kotlin/kotlin.kotlin_builtins
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.264 s <<< FAILURE! - in im.kny.DeSerializeQuarkusTest
+[ERROR] im.kny.DeSerializeQuarkusTest.quarkusFail  Time elapsed: 0.26 s  <<< FAILURE!
+java.lang.AssertionError: Built-in class kotlin.Any is not found
 	at im.kny.DeSerializeQuarkusTest.quarkusFail(DeSerializeQuarkusTest.kt:16)
 
-2020-08-24 10:59:18,109 INFO  [io.quarkus] (main) Quarkus stopped in 0.094s
+2020-09-10 08:18:20,898 INFO  [io.quarkus] (main) Quarkus stopped in 0.035s
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Errors: 
-[ERROR]   DeSerializeQuarkusTest.quarkusFail:16 » ExceptionInInitializer
+[ERROR] Failures: 
+[ERROR]   DeSerializeQuarkusTest.quarkusFail:16 Built-in class kotlin.Any is not found
 [INFO] 
-[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  22.499 s
-[INFO] Finished at: 2020-08-24T10:59:18+02:00
+[INFO] Total time:  11.662 s
+[INFO] Finished at: 2020-09-10T08:18:20+02:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project quarkus-kotlin14-jackson: There are test failures.
 [ERROR] 
